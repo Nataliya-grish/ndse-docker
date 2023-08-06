@@ -1,0 +1,85 @@
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+3f4d90098f5b: Pull complete
+Digest: sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview busybox
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker run --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=62 time=41.613 ms
+64 bytes from 188.114.98.224: seq=1 ttl=62 time=58.800 ms
+64 bytes from 188.114.98.224: seq=2 ttl=62 time=62.584 ms
+64 bytes from 188.114.98.224: seq=3 ttl=62 time=64.758 ms
+64 bytes from 188.114.98.224: seq=4 ttl=62 time=42.331 ms
+64 bytes from 188.114.98.224: seq=5 ttl=62 time=82.221 ms
+64 bytes from 188.114.98.224: seq=6 ttl=62 time=63.143 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 41.613/59.350/82.221 ms
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker ps --all
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+54a59a9b1743   busybox   "ping -c 7 netology.…"   46 seconds ago   Exited (0) 30 seconds ago             pinger
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker logs pinger
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=62 time=41.613 ms
+64 bytes from 188.114.98.224: seq=1 ttl=62 time=58.800 ms
+64 bytes from 188.114.98.224: seq=2 ttl=62 time=62.584 ms
+64 bytes from 188.114.98.224: seq=3 ttl=62 time=64.758 ms
+64 bytes from 188.114.98.224: seq=4 ttl=62 time=42.331 ms
+64 bytes from 188.114.98.224: seq=5 ttl=62 time=82.221 ms
+64 bytes from 188.114.98.224: seq=6 ttl=62 time=63.143 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 41.613/59.350/82.221 ms
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker start pinger
+pinger
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker ps --all
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                      PORTS     NAMES
+54a59a9b1743   busybox   "ping -c 7 netology.…"   2 minutes ago   Exited (0) 16 seconds ago             pinger
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker logs pinger
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=62 time=41.613 ms
+64 bytes from 188.114.98.224: seq=1 ttl=62 time=58.800 ms
+64 bytes from 188.114.98.224: seq=2 ttl=62 time=62.584 ms
+64 bytes from 188.114.98.224: seq=3 ttl=62 time=64.758 ms
+64 bytes from 188.114.98.224: seq=4 ttl=62 time=42.331 ms
+64 bytes from 188.114.98.224: seq=5 ttl=62 time=82.221 ms
+64 bytes from 188.114.98.224: seq=6 ttl=62 time=63.143 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 41.613/59.350/82.221 ms
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=62 time=99.870 ms
+64 bytes from 188.114.98.224: seq=1 ttl=62 time=74.986 ms
+64 bytes from 188.114.98.224: seq=2 ttl=62 time=81.748 ms
+64 bytes from 188.114.98.224: seq=3 ttl=62 time=76.458 ms
+64 bytes from 188.114.98.224: seq=5 ttl=62 time=74.230 ms
+64 bytes from 188.114.98.224: seq=6 ttl=62 time=74.965 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 6 packets received, 14% packet loss
+round-trip min/avg/max = 74.230/80.376/99.870 ms
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker rm pinger
+pinger
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+Deleted: sha256:a416a98b71e224a31ee99cff8e16063554498227d2b696152a9c3e0aa65e5824
+Deleted: sha256:3d24ee258efc3bfe4066a1a9fb83febf6dc0b1548dfe896161533668281c9f4f
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>

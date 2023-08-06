@@ -1,0 +1,22 @@
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker run --name mynode -it -e NAME=Natalya -e SURNAME=Grishina node:15.14
+Welcome to Node.js v15.14.0.
+Type ".help" for more information.
+> console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`)
+Привет, Natalya Grishina!
+undefined
+> docker stop mynode
+docker stop mynode
+       ^^^^
+
+Uncaught SyntaxError: Unexpected identifier
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+> .exit
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker stop mynode
+mynode
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker rm mynode
+mynode
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>

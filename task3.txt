@@ -1,0 +1,35 @@
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker pull node:15.14
+15.14: Pulling from library/node
+Digest: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
+Status: Image is up to date for node:15.14
+docker.io/library/node:15.14
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview node:15.14
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker run --name first_node -v C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker\data:/var/first/data -i -d node:15.14
+d4a8e6f2197330efa83af644cf1c5246a0ccb07bc003e3dd47bb5f89943a3f22
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker run --name second_node -v C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker\data:/var/second/data -i -d node:15.14
+4f98e37fe2196e049bbcb175311e720d8ea60980ce9c7b748e1a0c2689123d0d
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker exec first_node touch /var/first/data/first.txt
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker exec first_node touch /var/first/data/second.txt
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker exec second_node ls /var/second/data
+first.txt
+second.txt
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker stop first_node second_node
+first_node
+second_node
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker rm first_node second_node
+first_node
+second_node
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>docker rm mynode
+mynode
+
+C:\Users\R.Wind\Desktop\ndse-47\docker\ndse-docker>
